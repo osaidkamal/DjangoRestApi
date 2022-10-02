@@ -18,7 +18,7 @@ pipeline {
                 withCredentials([string(credentialsId: 'dhubpass', variable: 'dhubpass')])  {
                 sh 'docker logout'
                 sh 'docker login -u osaidkamal -p ${dhubpass}'
-                sh 'docker push osaidkamal/djangoauthapi'
+                sh 'docker push djangoauthapi'
 
 
         }
