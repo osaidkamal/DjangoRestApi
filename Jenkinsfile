@@ -13,18 +13,8 @@ pipeline {
 //                 sh 'docker build -t osaidkamal/djangoauthapi .'
 //             }
 //         }
-        stage("Push into docker Hub"){
-            steps {
-                withCredentials([string(credentialsId: 'dhubpass', variable: 'dhubpass')])  {
-                sh 'docker logout'
-                sh 'docker login -u osaidkamal -p ${dhubpass}'
-                sh 'docker push djangoauthapi'
-
-
-        }
-            }
-        }
-        stage("Docker Run") {
+        
+        stage("Docker Build and Compose") {
         steps {
 
 //                sh "docker-compose run web python manage.py migrate"
@@ -33,6 +23,18 @@ pipeline {
 
            }
         }
+        stage("Push into docker Hub"){
+            steps {
+                withCredentials([string(credentialsId: 'dhubpass', variable: 'dhubpass')])  {
+                sh 'docker logout'
+                sh 'docker login -u osaidkamal -p ${dhubpass}'
+                sh 'docker push djangoauthapi'
+
+
+                  }
+            }
+        }
+        
     }
 }
 
