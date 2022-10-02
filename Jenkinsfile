@@ -27,7 +27,7 @@ pipeline {
         stage("Docker Run") {
         steps {
 
-//                sh "docker-compose run web python manage.py migrate"
+               sh "docker-compose run web python manage.py migrate"
                 sh "docker-compose up"
 
 
