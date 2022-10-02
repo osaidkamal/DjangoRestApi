@@ -10,7 +10,7 @@ pipeline {
     
         stage("Docker image"){
             steps {
-                sh 'docker build -t djangoauthapi .'
+                sh 'docker build -t osaidkamal/djangoauthapi .'
             }
         }
         stage("Push into docker Hub"){
