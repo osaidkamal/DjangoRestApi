@@ -6,7 +6,7 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=djangoauthapi
+      - POSTGRES_DB=djangoauthapiv1
       - POSTGRES_USER=osaid
       - POSTGRES_PASSWORD=root
   web:
@@ -17,7 +17,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      - POSTGRES_NAME=djanogauthapi
+      - POSTGRES_NAME=djanogauthapiv1
       - POSTGRES_USER=osaid
       - POSTGRES_PASSWORD=root
     depends_on:
