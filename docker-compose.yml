@@ -6,19 +6,19 @@ services:
     volumes:
       - ./data/db:/var/lib/postgresql/data
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=djangoauthapi
+      - POSTGRES_USER=postgres1
+      - POSTGRES_PASSWORD=root
   web:
     build: .
-    command: python manage.py runserver 0.0.0.0:5000
+    command: python manage.py runserver 0.0.0.0:3000
     volumes:
       - .:/code
     ports:
-      - "8002:5000"
+      - "3000:3000"
     environment:
-      - POSTGRES_NAME=postgres
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_NAME=djanogauthapi
+      - POSTGRES_USER=postgres1
+      - POSTGRES_PASSWORD=root
     depends_on:
       - db
