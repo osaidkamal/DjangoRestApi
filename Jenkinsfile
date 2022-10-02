@@ -8,11 +8,11 @@ pipeline {
             }
         }
     
-        stage("Docker image"){
-            steps {
-                sh 'docker build -t osaidkamal/djangoauthapi .'
-            }
-        }
+//         stage("Docker image"){
+//             steps {
+//                 sh 'docker build -t osaidkamal/djangoauthapi .'
+//             }
+//         }
         stage("Push into docker Hub"){
             steps {
                 withCredentials([string(credentialsId: 'dhubpass', variable: 'dhubpass')])  {
