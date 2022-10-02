@@ -7,7 +7,7 @@ pipeline {
                 checkout([$class: 'GitSCM', branches: [[name: '*/api_new_changes']], extensions: [], userRemoteConfigs: [[credentialsId: '2e71e8dd-67bb-4f9e-ad63-1693a71e4f3e', url: 'https://github.com/osaidkamal/DjangoRestApi.git']]])
             }
         }
-    }
+    
         stage("Docker image"){
             steps {
                 sh 'docker build -t djangoauthapi .'
@@ -22,6 +22,7 @@ pipeline {
 
 
         }
+            }
         stage("Docker Run") {
         steps {
 
