@@ -7,7 +7,7 @@ services:
       - ./data/db:/var/lib/postgresql/data
     environment:
       - POSTGRES_DB=djangoauthapi
-      - POSTGRES_USER=postgres1
+      - POSTGRES_USER=osaid
       - POSTGRES_PASSWORD=root
   web:
     build: .
@@ -18,7 +18,7 @@ services:
       - "3000:3000"
     environment:
       - POSTGRES_NAME=djanogauthapi
-      - POSTGRES_USER=postgres1
+      - POSTGRES_USER=osaid
       - POSTGRES_PASSWORD=root
     depends_on:
       - db
